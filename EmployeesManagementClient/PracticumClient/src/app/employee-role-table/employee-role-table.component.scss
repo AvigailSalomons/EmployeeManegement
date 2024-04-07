@@ -1,0 +1,46 @@
+table {
+    width: 100%;
+    display: flex;
+}
+.button {
+  border: none;
+  background-color: white;
+  border-radius: 0%;
+}
+.mat-icon-button {
+    min-width: initial; /* או כל ערך אחר שיתאים לעיצוב */
+}
+table {
+  width: 100%;
+  display: flex;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* קו קווי בתחתית ה-tooltip */
+}
+
+
+/* טקסט בתוך ה-tooltips */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* הצגת ה-tooltips כאשר מעבירים את העכבר מעל הכפתור */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
