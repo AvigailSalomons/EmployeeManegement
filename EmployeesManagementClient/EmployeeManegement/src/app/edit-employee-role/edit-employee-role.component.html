@@ -1,0 +1,32 @@
+<form  *ngIf="EditPositionEmployeeForm"  [formGroup]="EditPositionEmployeeForm" class="form">
+    <div class="form-row">
+      <mat-label>סוג תפקיד:</mat-label>
+      <mat-form-field class="custom-field">
+        <mat-select formControlName="isManagement" class="custom-select">
+          <mat-option [value]="true">ניהולי</mat-option>
+          <mat-option [value]="false">רגיל</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  
+
+    <div class="form-row">
+      <mat-label>תאריך כניסה לתפקיד</mat-label>
+      <mat-form-field class="custom-field">
+        <input matInput [matDatepicker]="picker1" formControlName="entryDate" placeholder="בחר תאריך כניסה לעבודה" class="custom-input">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+      <div *ngIf="EditPositionEmployeeForm.get('entryDate').hasError('invalidEntryDate')" class="error-message">
+        תאריך הכניסה חייב להיות אחרי תאריך הכניסה לעבודה.
+      </div>
+    </div>
+  
+    <div class="dialog-actions">
+      <div class="btn-group" aria-label="Default button group">
+        <button mat-button color="warn" (click)="close()">ביטול</button>
+        <button mat-raised-button color="primary" (click)="save()" [disabled]="!EditPositionEmployeeForm.valid">שמור</button>
+      </div>
+    </div>
+  </form>
+  

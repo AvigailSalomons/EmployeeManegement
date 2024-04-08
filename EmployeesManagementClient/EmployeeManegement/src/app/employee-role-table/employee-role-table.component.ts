@@ -13,6 +13,8 @@ import { RoleEmployee } from '../../models/roleEmployee.model';
 import { Role } from '../../models/role.model';
 import { RoleService } from '../role.service';
 import { EmployeeRoleFormComponent } from '../employee-role-form/employee-role-form.component';
+import { EditEmployeeRoleComponent } from '../edit-employee-role/edit-employee-role.component';
+import { AddEmployeeRoleComponent } from '../add-employee-role/add-employee-role.component';
 
 @Component({
   selector: 'app-employee-role-table',
@@ -95,7 +97,8 @@ export class EmployeeRoleTableComponent implements OnInit {
   }
 
   openEditRoleOfEmployeeDialog(roleEmployee: RoleEmployee): void {
-    const dialogRef = this.dialog.open(EmployeeRoleFormComponent, {
+    console.log(this.employeeId, roleEmployee.roleId,"openEditRoleOfEmployeeDialog")
+    const dialogRef = this.dialog.open(EditEmployeeRoleComponent, {
       width: '50%',
       height: '70%',
       data: { employeeId: this.employeeId, roleId: roleEmployee.roleId }
@@ -114,7 +117,7 @@ export class EmployeeRoleTableComponent implements OnInit {
 
 
   openAddEmployeeDialog(): void {
-    const dialogRef = this.dialog.open(EmployeeRoleFormComponent, {
+    const dialogRef = this.dialog.open(AddEmployeeRoleComponent, {
       width: '50%',
       height: '70%',
       data: { employeeId: this.employeeId }

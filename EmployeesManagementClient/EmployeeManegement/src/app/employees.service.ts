@@ -60,6 +60,7 @@ export class EmployeeService {
   
 
   getRoleOfEmployeeById(employeeId:number, roleId:number): Observable<RoleEmployee> {
+    console.log(`${this.baseUrl}/${employeeId}/role/${roleId}`)
     return this.http.get<RoleEmployee>(`${this.baseUrl}/${employeeId}/role/${roleId}`); 
   }
 
@@ -70,7 +71,7 @@ export class EmployeeService {
   }
 
   updateRoleOfEmployee(employeeId: number, roleId:number, roleEmp: RoleEmployee): Observable<Employee> {
-
+console.log(`${this.baseUrl}/${employeeId}/role/${roleId}`, roleEmp)
     return this.http.put<Employee>(`${this.baseUrl}/${employeeId}/role/${roleId}`, roleEmp); 
   }
 

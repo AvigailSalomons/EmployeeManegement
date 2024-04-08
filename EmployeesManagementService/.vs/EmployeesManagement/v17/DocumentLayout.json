@@ -135,8 +135,7 @@
               "ViewState": "AQIAABoAAAAAAAAAAAAAACgAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-03T11:44:34.617Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -161,8 +160,7 @@
               "RelativeToolTip": "EmployeesManagement.Data\\Repositories\\RoleEmployeeRepository.cs",
               "ViewState": "AQIAACIAAAAAAAAAAAAAADMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T23:43:25.492Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-06T23:43:25.492Z"
             },
             {
               "$type": "Document",
@@ -174,8 +172,7 @@
               "RelativeToolTip": "EmployeesManagement.Data\\Repositories\\RoleRepository.cs",
               "ViewState": "AQIAAA4AAAAAAAAAAAAAAB4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-04T10:30:19.734Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-04T10:30:19.734Z"
             },
             {
               "$type": "Document",
@@ -185,7 +182,7 @@
               "RelativeDocumentMoniker": "EmployeesManagement.Data\\DataContext.cs",
               "ToolTip": "C:\\Users\\user1\\Desktop\\Now!!!!\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Data\\DataContext.cs",
               "RelativeToolTip": "EmployeesManagement.Data\\DataContext.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAkAAAAiAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAoAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-03T11:44:34.631Z",
               "EditorCaption": ""
@@ -200,8 +197,7 @@
               "RelativeToolTip": "Employeesmanagement.Service\\Services\\EmployeeService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAC4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T11:44:34.657Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T11:44:34.657Z"
             },
             {
               "$type": "Document",
@@ -213,8 +209,7 @@
               "RelativeToolTip": "Employeesmanagement.Service\\Services\\RoleService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T13:22:02.749Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-08T13:22:02.749Z"
             },
             {
               "$type": "Document",
@@ -226,8 +221,7 @@
               "RelativeToolTip": "EmployeesManagement.Core\\DTOs\\EmployeeDto.cs",
               "ViewState": "AQIAAAQAAAAAAAAAAAAAABEAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T22:44:39.608Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T22:44:39.608Z"
             },
             {
               "$type": "Document",
@@ -239,8 +233,7 @@
               "RelativeToolTip": "EmployeesManagement.Data\\Repositories\\EmployeeRepository.cs",
               "ViewState": "AQIAADAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T14:47:08.737Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-08T14:47:08.737Z"
             },
             {
               "$type": "Document",
@@ -252,8 +245,7 @@
               "RelativeToolTip": "EmployeesManagement.Core\\Services\\IRoleEmployeeService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T14:46:20.689Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-08T14:46:20.689Z"
             },
             {
               "$type": "Document",
@@ -265,8 +257,7 @@
               "RelativeToolTip": "EmployeesManagement.Core\\Repositories\\IEmployeeRepository.cs",
               "ViewState": "AQIAAAQAAAAAAAAAAAAAABIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T11:44:34.628Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T11:44:34.628Z"
             },
             {
               "$type": "Document",
@@ -278,8 +269,7 @@
               "RelativeToolTip": "EmployeesManagement.Core\\Repositories\\IRoleEmployeeRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAawAwAAABdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T13:00:37.215Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-08T13:00:37.215Z"
             },
             {
               "$type": "Document",
@@ -291,8 +281,7 @@
               "RelativeToolTip": "EmployeesManagement.Core\\Repositories\\IRoleRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T11:44:34.645Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T11:44:34.645Z"
             },
             {
               "$type": "Document",
@@ -304,8 +293,7 @@
               "RelativeToolTip": "EmployeesManagement.Core\\Models\\RoleEmployee.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T14:45:07.858Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-08T14:45:07.858Z"
             },
             {
               "$type": "Document",
@@ -317,8 +305,7 @@
               "RelativeToolTip": "EmployeesManagement.Core\\Services\\IRoleService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T11:44:34.648Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T11:44:34.648Z"
             },
             {
               "$type": "Document",
@@ -330,8 +317,7 @@
               "RelativeToolTip": "EmployeesManagement.Core\\Models\\Employee.cs",
               "ViewState": "AQIAAA8AAAAAAAAAAAAAAAsAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T14:44:48.478Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-08T14:44:48.478Z"
             },
             {
               "$type": "Document",
@@ -343,8 +329,7 @@
               "RelativeToolTip": "EmployeesManagement.Core\\Services\\IEmployeeService.cs",
               "ViewState": "AQIAAAgAAAAAAAAAAAD4vw8AAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T11:44:34.627Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T11:44:34.627Z"
             },
             {
               "$type": "Document",
@@ -356,8 +341,7 @@
               "RelativeToolTip": "EmployeesManagement.Core\\DTOs\\RoleEmployeeDto.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T14:44:38.832Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-08T14:44:38.832Z"
             },
             {
               "$type": "Document",
@@ -369,8 +353,7 @@
               "RelativeToolTip": "EmployeesManagement.API\\Program.cs",
               "ViewState": "AQIAACUAAAAAAAAAAAAAADAAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T11:44:34.62Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T11:44:34.62Z"
             },
             {
               "$type": "Document",
@@ -382,8 +365,7 @@
               "RelativeToolTip": "EmployeesManagement.API\\Models\\RolePostModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T11:44:34.64Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T11:44:34.64Z"
             },
             {
               "$type": "Document",
@@ -395,8 +377,7 @@
               "RelativeToolTip": "EmployeesManagement.API\\Controllers\\EmployeesController.cs",
               "ViewState": "AQIAACQAAAAAAAAAAAAAAG8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T11:44:34.624Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T11:44:34.624Z"
             },
             {
               "$type": "Document",
@@ -408,8 +389,7 @@
               "RelativeToolTip": "EmployeesManagement.API\\Controllers\\RoleController.cs",
               "ViewState": "AQIAABQAAAAAAAAAAAAAACUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T14:26:55.966Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-08T14:26:55.966Z"
             },
             {
               "$type": "Document",
@@ -421,8 +401,7 @@
               "RelativeToolTip": "EmployeesManagement.Core\\Models\\Role.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T13:22:21.068Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-08T13:22:21.068Z"
             },
             {
               "$type": "Document",
@@ -434,8 +413,7 @@
               "RelativeToolTip": "EmployeesManagement.API\\Models\\RoleEmployeePostModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T14:38:30.011Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-08T14:38:30.011Z"
             },
             {
               "$type": "Document",
@@ -447,8 +425,7 @@
               "RelativeToolTip": "EmployeesManagement.Core\\DTOs\\RoleDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T22:44:52.273Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T22:44:52.273Z"
             },
             {
               "$type": "Document",
@@ -460,8 +437,7 @@
               "RelativeToolTip": "EmployeesManagement.API\\Models\\EmployeePostModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T11:44:34.656Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T11:44:34.656Z"
             },
             {
               "$type": "Document",
