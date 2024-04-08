@@ -12,6 +12,5 @@ namespace EmployeesManagement.Core.Services
         Task<IEnumerable<Role>> GetRolesAsync();
         Task<Role> AddRoleAsync(Role role);
 
-        //Task<bool> DeletePositionAsync(int id);
     }
 }

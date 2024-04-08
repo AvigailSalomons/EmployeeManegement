@@ -12,6 +12,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { RoleEmployee } from '../../models/roleEmployee.model';
 
+
 @Component({
   selector: 'app-employee-role-form',
   standalone: true,
@@ -31,7 +32,7 @@ export class EmployeeRoleFormComponent implements OnInit {
   employeeRoleForm: FormGroup;
   roleList: Role[]; // רשימת תפקידים (שנדלה מהשירות)
   isEditing = false; // דגל המציין מצב עריכה
-  
+  updateEmployee: RoleEmployee
 employeeRole:RoleEmployee;
 
   constructor(
@@ -41,70 +42,57 @@ employeeRole:RoleEmployee;
     public dialogRef: MatDialogRef<EmployeeRoleFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { employeeId: number, roleId?: number }
   ) {
-
-    // בדיקה אם קיים מזהה עובד
-    this.employeeRoleForm = this.formBuilder.group({
-      roleName: ['', Validators.required],
-      isManagement: ['', Validators.required],
-      entryDate: ['', Validators.required],
-    });
-    
-
-  }
-  ngOnInit(): void {
+    if(this.data.roleId){
+      this.isEditing=true}
+  }ngOnInit(): void {
     this._roleService.getAllRoles().subscribe(roles => {
       this.roleList = roles;
     });
-   
-    if (this.data.roleId) {
-     
-    
   
-      console.log(this.data.roleId,"טען נתונים קיימים עבור עריכה");
+ 
+      this.employeeRoleForm = this.formBuilder.group({
+        roleName: [ '', Validators.required],
+        isManagement: [ '', Validators.required],
+        entryDate: [ '', Validators.required],
+      });
+      if (this.isEditing) {
       
-      // טען נתונים קיימים עבור עריכה:
-      this._employeeService.getRoleOfEmployeeById(this.data.employeeId, this.data.roleId).subscribe(roleEmployee => {
-        this.employeeRole=roleEmployee
-        console.log(this.employeeRole.roleName,this.employeeRole.isManagement,this.employeeRole.entryDate)
-     
-      });
-
-      console.log("patchValue")
-    
-
-      this.isEditing = true;
-      this.employeeRoleForm.patchValue({
+        this._employeeService.getRoleOfEmployeeById(this.data.employeeId, this.data.roleId).subscribe(employeeRole => {
+          this.updateEmployee = employeeRole;
+          console.log(this.updateEmployee)
+          this.employeeRoleForm = this.formBuilder.group({
+            roleName: [this.updateEmployee.roleName, Validators.required],
+            isManagement: [this.updateEmployee.isManagement, Validators.required],
+            entryDate: [this.updateEmployee.entryDate, Validators.required],
+          });
+          const role = this.roleList.find(role => role.roleId === this.data.roleId);
+          this.employeeRoleForm.patchValue({
+            roleName: role.roleName,
+            isManagement: employeeRole.isManagement,
+            entryDate: employeeRole.entryDate
+          });
   
-        roleName: this.employeeRole.roleName,
-        
-        isManagement: this.employeeRole.isManagement,
-        entryDate: this.employeeRole.entryDate,
-      });
-    }
+        });
+      }
   }
   
-  onSave(): void {
-    // ... שאר הלוגיקה
   
-      if (this.isEditing) {
-        const formData = this.employeeRoleForm.value;
-        formData.roleId=this.roleList.find(role=>role.roleName==formData.roleName).roleId
-        console.log(this.data.employeeId,"em",this.data.roleId,"ro", formData,"QQQ")
-        this._employeeService.updateRoleOfEmployee(this.data.employeeId,this.data.roleId, formData).subscribe(() => {
-          // הצג הודעת הצלחה
-         
-          this.dialogRef.close(true);
-        });
-      } else {
-        
-      const formData = this.employeeRoleForm.value;
-        formData.roleId=this.roleList.find(role=>role.roleName==formData.roleName).roleId
+  onSave(): void {
+    const role = this.roleList.find(role => role.roleName === this.employeeRoleForm.get('roleName').value);
+    const formData: RoleEmployee = {
+      roleId: this.data.roleId?role.roleId:this.roleList.find(role=>role.roleName==this.employeeRoleForm.get('roleName').value).roleId,
+      roleName: this.employeeRoleForm.get('roleName').value,
+      isManagement: this.employeeRoleForm.get('isManagement').value,
+      entryDate: this.employeeRoleForm.get('entryDate').value,
+    };this.isEditing?
+    this._employeeService.updateRoleOfEmployee(this.data.employeeId, this.data.roleId, formData).subscribe(() => {
+      this.dialogRef.close(true);
+    }):
+  
         this._employeeService.addNewRoleToEmployee(this.data.employeeId, formData).subscribe(() => {
-          // הצג הודעת הצלחה
           this.dialogRef.close(true);
-        });
-      
-    }
+        })
+   
   }
   
   

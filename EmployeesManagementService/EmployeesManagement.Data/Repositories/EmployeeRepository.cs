@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace EmployeesManagement.Data.Repositories
 {
-    public class EmployeeRepository:IEmployeeRepository
+    public class EmployeeRepository : IEmployeeRepository
     {
         private readonly DataContext _context;
         public EmployeeRepository(DataContext context)

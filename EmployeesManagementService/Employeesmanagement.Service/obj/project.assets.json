@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user1\\Desktop\\EmployeesManagement\\Employeesmanagement.Service\\Employeesmanagement.Service.csproj",
+      "projectUniqueName": "C:\\Users\\user1\\Desktop\\Now!!!!\\EmployeeManegement\\EmployeesManagementService\\Employeesmanagement.Service\\Employeesmanagement.Service.csproj",
       "projectName": "Employeesmanagement.Service",
-      "projectPath": "C:\\Users\\user1\\Desktop\\EmployeesManagement\\Employeesmanagement.Service\\Employeesmanagement.Service.csproj",
+      "projectPath": "C:\\Users\\user1\\Desktop\\Now!!!!\\EmployeeManegement\\EmployeesManagementService\\Employeesmanagement.Service\\Employeesmanagement.Service.csproj",
       "packagesPath": "C:\\Users\\user1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user1\\Desktop\\EmployeesManagement\\Employeesmanagement.Service\\obj\\",
+      "outputPath": "C:\\Users\\user1\\Desktop\\Now!!!!\\EmployeeManegement\\EmployeesManagementService\\Employeesmanagement.Service\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user1\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -53,8 +53,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\user1\\Desktop\\EmployeesManagement\\EmployeesManagement.Core\\EmployeesManagement.Core.csproj": {
-              "projectPath": "C:\\Users\\user1\\Desktop\\EmployeesManagement\\EmployeesManagement.Core\\EmployeesManagement.Core.csproj"
+            "C:\\Users\\user1\\Desktop\\Now!!!!\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Core\\EmployeesManagement.Core.csproj": {
+              "projectPath": "C:\\Users\\user1\\Desktop\\Now!!!!\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Core\\EmployeesManagement.Core.csproj"
             }
           }
         }

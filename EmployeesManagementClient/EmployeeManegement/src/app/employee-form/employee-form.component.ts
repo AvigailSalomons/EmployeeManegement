@@ -30,7 +30,7 @@ export class EmployeeFormComponent implements OnInit {
     private router: Router,
     public route: ActivatedRoute
   ) {
-
+    
   }
   ngOnInit(): void {
     this.employeeId = Number(this.route.snapshot.paramMap.get('id'));
@@ -48,6 +48,8 @@ export class EmployeeFormComponent implements OnInit {
         });
       },
     });
+    if(this.employeeId){
+      this.isEditing=true}
   }
 
 

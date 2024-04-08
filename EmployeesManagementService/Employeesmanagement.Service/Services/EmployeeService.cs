@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Employeesmanagement.Service.Services
 {
-    public class EmployeeService: IEmployeeService
+    public class EmployeeService : IEmployeeService
     {
         private readonly IEmployeeRepository _employeeRepository;
         public EmployeeService(IEmployeeRepository employeeRepository)
@@ -32,7 +32,7 @@ namespace Employeesmanagement.Service.Services
         }
 
         public async Task<Employee> GetEmployeeByIdAsync(int id)
-            
+
         {
             return await _employeeRepository.GetEmployeeByIdAsync(id);
         }

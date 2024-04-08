@@ -41,7 +41,7 @@ export class EmployeeRoleTableComponent implements OnInit {
     private _employeeService: EmployeeService,
     private dialog: MatDialog,
     private _roleService: RoleService
-  ) { this.getRolesOfEmployee() }
+  ) {  }
 
   ngOnInit(): void {
     this.getRolesOfEmployee();
@@ -53,9 +53,7 @@ export class EmployeeRoleTableComponent implements OnInit {
         this.roles = result;
       },
     });
-    if (this.employeeId)
-      console.log(this.employeeId)
-
+   
     this._employeeService.getRolesOfEmployeeList(this.employeeId).subscribe({
       next: (result) => {
         const roleDataWithNames = result.map((roleEmployee) => {
@@ -68,12 +66,32 @@ export class EmployeeRoleTableComponent implements OnInit {
   }
 
 
-  deletePositionOfEmployee(roleEmployee: RoleEmployee): void {
+  deleteRoleOfEmployee(roleEmployee: RoleEmployee): void {
     this._employeeService.deleteRoleOfEmployee(this.employeeId, roleEmployee.roleId).subscribe({
-      next: () => {
-        this.getRolesOfEmployee();
+      next: (response) => {
+        
+        this._employeeService.getRolesOfEmployeeList(this.employeeId).subscribe({
+          next: (result) => {
+            const roleDataWithNames = result.map((roleEmployee) => {
+              const role = this.roles.find((role) => role.roleId === roleEmployee.roleId);
+              return { ...roleEmployee, roleName: role.roleName || 'Role Not Found' };
+            });
+            this.rolesOfEmployees = new MatTableDataSource<RoleEmployee>(roleDataWithNames);
+          },
+        });
       }
     });
+    // this._employeeService.deleteRoleOfEmployee(this.employeeId, roleEmployee.roleId).subscribe(
+    //   (response) => {
+    //     console.log('התשובה מהשרת:', response);
+    //     this.getRolesOfEmployee();
+    //     // עבודה נוספת עם התשובה...
+    //   },
+    //   (error) => {
+    //     console.error('שגיאה בביצוע בקשת DELETE:', error);
+    //   }
+    // );
+    
   }
 
   openEditRoleOfEmployeeDialog(roleEmployee: RoleEmployee): void {
@@ -96,7 +114,6 @@ export class EmployeeRoleTableComponent implements OnInit {
 
 
   openAddEmployeeDialog(): void {
-    console.log("this.dialog.open(EmployeeRoleFormComponent,")
     const dialogRef = this.dialog.open(EmployeeRoleFormComponent, {
       width: '50%',
       height: '70%',

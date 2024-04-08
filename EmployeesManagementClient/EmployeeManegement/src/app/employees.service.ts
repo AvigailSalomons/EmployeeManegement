@@ -45,17 +45,14 @@ export class EmployeeService {
   //   return this.http.get<RoleEmployee[]>(`${this.baseUrl}/${id}/roles`); 
   // }
   getRolesOfEmployeeList(id: number): Observable<RoleEmployee[]> {
-    console.info(`getRolesOfEmployeeList-service: id=${id}`);
   
     const url = `${this.baseUrl}/${id}/role`;
   
     return this.http.get<RoleEmployee[]>(url).pipe(
       map((roles) => {
-        console.info(`getRolesOfEmployeeList-success: ${roles.length} roles found`);
         return roles;
       }),
       catchError((error) => {
-        console.error(`getRolesOfEmployeeList-error: ${error.message}`);
         throw error;
       })
     );
@@ -63,23 +60,22 @@ export class EmployeeService {
   
 
   getRoleOfEmployeeById(employeeId:number, roleId:number): Observable<RoleEmployee> {
-    console.log("getRoleOfEmployeeById")
     return this.http.get<RoleEmployee>(`${this.baseUrl}/${employeeId}/role/${roleId}`); 
   }
 
   addNewRoleToEmployee(employeeId:number, roleEmp: RoleEmployee): Observable<RoleEmployee> { 
-    console.log("onsave -service")
-    console.log(roleEmp,employeeId,roleEmp.entryDate,roleEmp.isManagement,roleEmp.roleName,"addNewRoleToEmployee")
 
+    console.log(employeeId,roleEmp)
     return this.http.post<RoleEmployee>(`${this.baseUrl}/${employeeId}/role`, roleEmp);
   }
 
   updateRoleOfEmployee(employeeId: number, roleId:number, roleEmp: RoleEmployee): Observable<Employee> {
-    console.log("updateRoleOfEmployee")
+
     return this.http.put<Employee>(`${this.baseUrl}/${employeeId}/role/${roleId}`, roleEmp); 
   }
 
     deleteRoleOfEmployee(employeeId: number, roleId:number): Observable<Employee> {
-    return this.http.delete<Employee>(`${this.baseUrl}/${employeeId}/role/${roleId}`); 
+    
+    return this.http.delete<Employee>(`${this.baseUrl}/${employeeId}/role/${roleId}`);
   }
 }

@@ -17,28 +17,28 @@ namespace Employeesmanagement.Service.Services
         {
             _roleEmployeeRepository = roleEmployeeRepository;
         }
+        public async Task<IEnumerable<RoleEmployee>> GetEmployeeRolesAsync(int employeeId)
+        {
+            return await _roleEmployeeRepository.GetEmployeeRolesAsync(employeeId);
+        }
+        public async Task<IEnumerable<RoleEmployee>> GetEmployeeRoleByIdAsync(int employeeId, int roleId)
+        {
+            return await _roleEmployeeRepository.GetEmployeeRoleByIdAsync(employeeId, roleId);
+        }
         public async Task<RoleEmployee> AddRoleToEmployeeAsync(int EmployeeId, RoleEmployee roleEmployee)
         {
             roleEmployee.EmployeeId = EmployeeId;
-            return await _roleEmployeeRepository.AddRoleToEmployeeAsync(roleEmployee);
+            return await _roleEmployeeRepository.AddRoleToEmployeeAsync(EmployeeId, roleEmployee);
+        }
+        public async Task<RoleEmployee> UpdateRoleToEmployeeAsync(int employeeId, int roleId, RoleEmployee roleEmployee)
+        {
+            return await _roleEmployeeRepository.UpdateRoleToEmployeeAsync(employeeId, roleId, roleEmployee);
         }
         public async Task<bool> DeleteRoleOfEmployeeAsync(int employeeId, int positionId)
         {
             return await _roleEmployeeRepository.DeleteRoleOfEmployeeAsync(employeeId, positionId);
         }
-        public async Task<IEnumerable<RoleEmployee>> GetEmployeeRolesAsync(int employeeId)
-        {
-            return await _roleEmployeeRepository.GetEmployeeRolesAsync(employeeId);
-        }
-        public async Task<IEnumerable<RoleEmployee>> GetEmployeeRoleByIdAsync(int employeeId,int roleId)
-        {
-            return await _roleEmployeeRepository.GetEmployeeRoleByIdAsync(employeeId,roleId);
-        }
-        public async Task<RoleEmployee> UpdateRoleToEmployeeAsync(int employeeId,int roleId, RoleEmployee roleEmployee)
-        {
-            return await _roleEmployeeRepository.UpdateRoleToEmployeeAsync(employeeId,roleId, roleEmployee);
-        }
-   
+    
     }
    
 }

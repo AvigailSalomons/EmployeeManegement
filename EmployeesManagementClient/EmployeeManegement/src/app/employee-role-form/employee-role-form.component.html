@@ -1,9 +1,9 @@
 <div class="employee-role-form-container">
   <h2>{{ isEditing ? ' Editing an employee role ':'Add a new role'  }}</h2>
 
-  <div class="dialog-content" id="dialog-content">
+  <div  class="dialog-content" id="dialog-content">
     <form [formGroup]="employeeRoleForm" class="form">
-      <div class="form-row">
+      <div *ngIf="!isEditing" class="form-row">
         <mat-form-field class="form-field">
           <mat-select placeholder="בחר תפקיד" formControlName="roleName">
             <mat-option *ngFor="let role of roleList" [value]="role.roleName"> {{ role.roleName }}</mat-option>

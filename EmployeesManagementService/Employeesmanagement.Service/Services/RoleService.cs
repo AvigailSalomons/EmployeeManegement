@@ -17,13 +17,14 @@ namespace Employeesmanagement.Service.Services
             _roleRepository = roleRepository;
 
         }
-        public async Task<Role> AddRoleAsync(Role role)
-        {
-            return await _roleRepository.AddEmployeeAsync(role);
-        }
         public async Task<IEnumerable<Role>> GetRolesAsync()
         {
             return await _roleRepository.GetRolesAsync();
         }
+        public async Task<Role> AddRoleAsync(Role role)
+        {
+            return await _roleRepository.AddEmployeeAsync(role);
+        }
+       
     }
 }
