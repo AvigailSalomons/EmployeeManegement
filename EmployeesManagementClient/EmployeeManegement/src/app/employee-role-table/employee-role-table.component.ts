@@ -1,10 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { EmployeeService } from '../employees.service';
-import { Employee } from '../../models/employee.model';
 import { CommonModule } from '@angular/common';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -12,14 +10,17 @@ import { MatDialog } from '@angular/material/dialog';
 import { RoleEmployee } from '../../models/roleEmployee.model';
 import { Role } from '../../models/role.model';
 import { RoleService } from '../role.service';
-import { EmployeeRoleFormComponent } from '../employee-role-form/employee-role-form.component';
+import { EmployeeService } from '../employees.service';
 import { EditEmployeeRoleComponent } from '../edit-employee-role/edit-employee-role.component';
 import { AddEmployeeRoleComponent } from '../add-employee-role/add-employee-role.component';
+
 
 @Component({
   selector: 'app-employee-role-table',
   standalone: true,
   imports: [
+    ReactiveFormsModule,
+
     CommonModule,
     MatTableModule,
     MatIconModule,
@@ -43,7 +44,7 @@ export class EmployeeRoleTableComponent implements OnInit {
     private _employeeService: EmployeeService,
     private dialog: MatDialog,
     private _roleService: RoleService
-  ) {  }
+  ) { }
 
   ngOnInit(): void {
     this.getRolesOfEmployee();
@@ -55,7 +56,7 @@ export class EmployeeRoleTableComponent implements OnInit {
         this.roles = result;
       },
     });
-   
+
     this._employeeService.getRolesOfEmployeeList(this.employeeId).subscribe({
       next: (result) => {
         const roleDataWithNames = result.map((roleEmployee) => {
@@ -71,7 +72,7 @@ export class EmployeeRoleTableComponent implements OnInit {
   deleteRoleOfEmployee(roleEmployee: RoleEmployee): void {
     this._employeeService.deleteRoleOfEmployee(this.employeeId, roleEmployee.roleId).subscribe({
       next: (response) => {
-        
+
         this._employeeService.getRolesOfEmployeeList(this.employeeId).subscribe({
           next: (result) => {
             const roleDataWithNames = result.map((roleEmployee) => {
@@ -83,21 +84,10 @@ export class EmployeeRoleTableComponent implements OnInit {
         });
       }
     });
-    // this._employeeService.deleteRoleOfEmployee(this.employeeId, roleEmployee.roleId).subscribe(
-    //   (response) => {
-    //     console.log('התשובה מהשרת:', response);
-    //     this.getRolesOfEmployee();
-    //     // עבודה נוספת עם התשובה...
-    //   },
-    //   (error) => {
-    //     console.error('שגיאה בביצוע בקשת DELETE:', error);
-    //   }
-    // );
-    
   }
 
   openEditRoleOfEmployeeDialog(roleEmployee: RoleEmployee): void {
-    console.log(this.employeeId, roleEmployee.roleId,"openEditRoleOfEmployeeDialog")
+    console.log(this.employeeId, roleEmployee.roleId, "openEditRoleOfEmployeeDialog")
     const dialogRef = this.dialog.open(EditEmployeeRoleComponent, {
       width: '50%',
       height: '70%',

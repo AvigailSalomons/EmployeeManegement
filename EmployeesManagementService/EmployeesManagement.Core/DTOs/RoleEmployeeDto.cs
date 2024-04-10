@@ -9,11 +9,7 @@ namespace EmployeesManagement.Core.DTOs
     public class RoleEmployeeDto
     {
         public int EmployeeId { get; set; }
-        public EmployeeDto Employee { get; set; }
-
         public int RoleId { get; set; }
-        public RoleDto Role { get; set; }
-
         public DateTime EntryDate { get; set; }
         public bool IsManagement { get; set; }
     }

@@ -7,6 +7,7 @@ using Employeesmanagement.Service.Services;
 using EmployeesManagement.Core.Repositories;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using EmployeesManagement.Core.DTOs;
 
 namespace EmployeesManagement.API.Controllers
 {
@@ -32,9 +33,10 @@ namespace EmployeesManagement.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<Employee> Get(int id)
+        public async Task<IActionResult>Get(int id)
         {
-            return await _employeeService.GetEmployeeByIdAsync(id);
+            var employee = await _employeeService.GetEmployeeByIdAsync(id);
+            return Ok(_mapper.Map<EmployeeDto>(employee));
         }
 
         [HttpPost]
@@ -82,9 +84,10 @@ namespace EmployeesManagement.API.Controllers
         }
 
         [HttpGet("{employeeId}/role/{roleId}")]
-        public async Task<IEnumerable<RoleEmployee>> GetEmployeeRoleById(int employeeId, int roleId)
+        public async Task<IActionResult> GetEmployeeRoleById(int employeeId, int roleId)
         {
-            return await _roleEmployeeService.GetEmployeeRoleByIdAsync(employeeId, roleId);
+            var roleEmployee= await _roleEmployeeService.GetEmployeeRoleByIdAsync(employeeId, roleId);
+            return Ok(_mapper.Map<RoleEmployeeDto>(roleEmployee));
         }
 
         [HttpPut("{employeeId}/role/{roleId}")]

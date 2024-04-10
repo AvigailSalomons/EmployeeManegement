@@ -1,7 +1,7 @@
 import { Component, Inject, Input, OnInit, Optional } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef ,MatDialogModule} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -11,50 +11,40 @@ import { MatNativeDateModule } from '@angular/material/core';
 
 import { Employee } from '../../models/employee.model';
 import { Role } from '../../models/role.model';
-import { RoleEmployee } from '../../models/roleEmployee.model';
 import { EmployeeService } from '../employees.service';
 import { RoleService } from '../role.service';
-import { EmployeeRoleTableComponent } from '../employee-role-table/employee-role-table.component';
+import { EmployeeRolePostModel } from '../../models/EmployeeRoleOstModel';
 
 
 @Component({
   selector: 'app-edit-employee-role',
   standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    MatNativeDateModule,MatDialogModule
-  ],
+  imports: [CommonModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule],
+
   templateUrl: './edit-employee-role.component.html',
   styleUrl: './edit-employee-role.component.scss'
 })
 export class EditEmployeeRoleComponent implements OnInit {
-  EditPositionEmployeeForm: FormGroup;
-  positionlist: Role[]
+  EditRoleEmployeeForm: FormGroup;
+  rolelist: Role[]
   employeeId: number
-  positionId: number
+  roleId: number
   employee: Employee
-  positionEmployee: RoleEmployee
+  roleEmployee: EmployeeRolePostModel
   roles: Role[];
 
   constructor(
     private formBuilder: FormBuilder,
-   
     private _employeeService: EmployeeService,
     private router: Router,
     private dialog: MatDialog,
-    private _positionService: RoleService,
+    private _roleservice: RoleService,
     private _roleService: RoleService,
-    @Optional()  public dialogRef: MatDialogRef<EditEmployeeRoleComponent>,
+    @Optional() public dialogRef: MatDialogRef<EditEmployeeRoleComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { employeeId: number, roleId: number },
   ) {
     this.employeeId = data.employeeId;
-    this.positionId = data.roleId;    
-   
+    this.roleId = data.roleId;
   }
   validateEntryDate(control: FormControl) {
     const entryDate = new Date(control.value);
@@ -63,50 +53,43 @@ export class EditEmployeeRoleComponent implements OnInit {
     }
     return null;
   }
-  
+
   ngOnInit(): void {
     this._roleService.getAllRoles().subscribe(roles => {
       this.roles = roles;
     });
-  
+    this._roleservice.getEmployeeRolesNotAssigned(this.employeeId).subscribe(roles => {
+      this.rolelist = roles;
+    });
+
     this._employeeService.getEmployeeById(this.employeeId).subscribe(employee => {
       this.employee = employee;
     });
-    this._employeeService.getRoleOfEmployeeById(this.employeeId, this.positionId).subscribe(pe => {
-      this.positionEmployee = pe;
-      this.EditPositionEmployeeForm = this.formBuilder.group({
-        isManagement: [this.positionEmployee.isManagement, Validators.required],
-        entryDate: [this.positionEmployee.entryDate, [this.validateEntryDate.bind(this)]],
-        // roleName: [this.positionEmployee.roleName, Validators.required],
+    this._employeeService.getRoleOfEmployeeById(this.employeeId, this.roleId).subscribe(pe => {
+      this.roleEmployee = pe;
+      this.EditRoleEmployeeForm = this.formBuilder.group({
+        isManagement: [this.roleEmployee.isManagement, Validators.required],
+        entryDate: [this.roleEmployee.entryDate, Validators.required]
       });
+      
     });
-   
-   
-    this._positionService.getEmployeeRolesNotAssigned(this.employeeId).subscribe(positions => {
-      this.positionlist = positions;
-    });
+    
   }
 
 
   save(): void {
-    console.log(this.EditPositionEmployeeForm.get('isManagement').value,this.EditPositionEmployeeForm.get('entryDate').value)
     const role = this.roles.find(role => role.roleId === this.data.roleId);
-    const updatePositionEmployee: RoleEmployee = {
-      roleId: this.positionId,
-      roleName:  role.roleName,
-      isManagement: this.EditPositionEmployeeForm.get('isManagement').value,
-      entryDate: this.EditPositionEmployeeForm.get('entryDate').value,
-    };
-
-    this._employeeService.updateRoleOfEmployee(this.employeeId, this.positionId, updatePositionEmployee).subscribe({
-      next: (res) => {
-        this.router.navigate(['/editEmployee', this.employeeId])
-        this.dialogRef.close(this.EditPositionEmployeeForm.value);
-      },
-    })
+    const updateroleEmployee: EmployeeRolePostModel = this.roleEmployee;
+    updateroleEmployee.entryDate = this.EditRoleEmployeeForm.value.entryDate,
+        updateroleEmployee.isManagement=this.EditRoleEmployeeForm.value.isManagement,
+      this._employeeService.updateRoleOfEmployee(this.employeeId, this.roleId, updateroleEmployee).subscribe({
+        next: (res) => {
+          this.router.navigate(['/editEmployee', this.employeeId])
+          this.dialogRef.close(this.EditRoleEmployeeForm.value);
+        },
+      })
   }
   close(): void {
     this.dialogRef.close();
   }
 }
-

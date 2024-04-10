@@ -43,3 +43,16 @@ C:\Users\user1\Desktop\Now!!!!\EmployeeManegement\EmployeesManagementService\Emp
 C:\Users\user1\Desktop\Now!!!!\EmployeeManegement\EmployeesManagementService\EmployeesManagement.Core\obj\Debug\net8.0\refint\EmployeesManagement.Core.dll
 C:\Users\user1\Desktop\Now!!!!\EmployeeManegement\EmployeesManagementService\EmployeesManagement.Core\obj\Debug\net8.0\EmployeesManagement.Core.pdb
 C:\Users\user1\Desktop\Now!!!!\EmployeeManegement\EmployeesManagementService\EmployeesManagement.Core\obj\Debug\net8.0\ref\EmployeesManagement.Core.dll
+C:\Users\user1\Desktop\‏‏תיקיה חדשה\EmployeeManegement\EmployeesManagementService\EmployeesManagement.Core\bin\Debug\net8.0\EmployeesManagement.Core.deps.json
+C:\Users\user1\Desktop\‏‏תיקיה חדשה\EmployeeManegement\EmployeesManagementService\EmployeesManagement.Core\bin\Debug\net8.0\EmployeesManagement.Core.dll
+C:\Users\user1\Desktop\‏‏תיקיה חדשה\EmployeeManegement\EmployeesManagementService\EmployeesManagement.Core\bin\Debug\net8.0\EmployeesManagement.Core.pdb
+C:\Users\user1\Desktop\‏‏תיקיה חדשה\EmployeeManegement\EmployeesManagementService\EmployeesManagement.Core\obj\Debug\net8.0\EmployeesManagement.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user1\Desktop\‏‏תיקיה חדשה\EmployeeManegement\EmployeesManagementService\EmployeesManagement.Core\obj\Debug\net8.0\EmployeesManagement.Core.AssemblyInfoInputs.cache
+C:\Users\user1\Desktop\‏‏תיקיה חדשה\EmployeeManegement\EmployeesManagementService\EmployeesManagement.Core\obj\Debug\net8.0\EmployeesManagement.Core.AssemblyInfo.cs
+C:\Users\user1\Desktop\‏‏תיקיה חדשה\EmployeeManegement\EmployeesManagementService\EmployeesManagement.Core\obj\Debug\net8.0\EmployeesManagement.Core.csproj.CoreCompileInputs.cache
+C:\Users\user1\Desktop\‏‏תיקיה חדשה\EmployeeManegement\EmployeesManagementService\EmployeesManagement.Core\obj\Debug\net8.0\EmployeesManagement.Core.sourcelink.json
+C:\Users\user1\Desktop\‏‏תיקיה חדשה\EmployeeManegement\EmployeesManagementService\EmployeesManagement.Core\obj\Debug\net8.0\EmployeesManagement.Core.dll
+C:\Users\user1\Desktop\‏‏תיקיה חדשה\EmployeeManegement\EmployeesManagementService\EmployeesManagement.Core\obj\Debug\net8.0\refint\EmployeesManagement.Core.dll
+C:\Users\user1\Desktop\‏‏תיקיה חדשה\EmployeeManegement\EmployeesManagementService\EmployeesManagement.Core\obj\Debug\net8.0\EmployeesManagement.Core.pdb
+C:\Users\user1\Desktop\‏‏תיקיה חדשה\EmployeeManegement\EmployeesManagementService\EmployeesManagement.Core\obj\Debug\net8.0\ref\EmployeesManagement.Core.dll
+C:\Users\user1\Desktop\‏‏תיקיה חדשה\EmployeeManegement\EmployeesManagementService\EmployeesManagement.Core\obj\Debug\net8.0\EmployeesManagement.Core.csproj.AssemblyReference.cache

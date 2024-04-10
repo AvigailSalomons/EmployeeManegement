@@ -21,8 +21,6 @@ import { Router } from '@angular/router';
     MatFormFieldModule,
     MatSelectModule, MatDatepickerModule, MatNativeDateModule
   ],
-
-
   templateUrl: './add-employee.component.html',
   styleUrl: './add-employee.component.scss'
 })
@@ -30,7 +28,6 @@ import { Router } from '@angular/router';
 
 export class AddEmployeeComponent {
   employeeForm: FormGroup;
-
   constructor(
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<AddEmployeeComponent>,
@@ -40,7 +37,7 @@ export class AddEmployeeComponent {
     this.employeeForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      identity: ['', Validators.required],
+      identity: ['', [Validators.required, Validators.pattern('^[0-9]{9}$')]],
       birthDate: ['', Validators.required],
       gender: ['', Validators.required],
       entryDate: ['', Validators.required],
@@ -63,14 +60,13 @@ export class AddEmployeeComponent {
       this._employeeService.addNewEmployee(newEmployee).subscribe({
         next: (res) => {
           console.log(res)
-         console.log( newEmployee.employeeId )
+          console.log(newEmployee.employeeId)
           this.router.navigate(['/editEmployee', res.employeeId])
 
         },
       })
     }
     this._employeeService.getEmployeeList().subscribe();
-    // this.router.navigate(['/editEmployee',])
     this.dialogRef.close(this.employeeForm.value);
   }
 

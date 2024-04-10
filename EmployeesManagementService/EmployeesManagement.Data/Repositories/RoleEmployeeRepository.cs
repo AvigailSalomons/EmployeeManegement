@@ -18,14 +18,17 @@ namespace EmployeesManagement.Data.Repositories
         }
         public async Task<RoleEmployee> AddRoleToEmployeeAsync(int employeeId, RoleEmployee roleEmployee)
         {
-            var position = await _context.RolesEmployee.FirstOrDefaultAsync(e => e.EmployeeId == employeeId && e.RoleId == roleEmployee.RoleId);
-            if (position != null)
+            var role = await _context.RolesEmployee.FirstOrDefaultAsync(e => e.EmployeeId == employeeId && e.RoleId == roleEmployee.RoleId);
+            if (role != null)
             {
-                position.EntryDate = roleEmployee.EntryDate;
-                position.IsManagement = roleEmployee.IsManagement;
-                position.StatusActive = true; // נראה שאתה משנה גם את הסטטוס ל־true כאן
+                role.EntryDate = roleEmployee.EntryDate;
+                role.IsManagement = roleEmployee.IsManagement;
+                role.Employee = await _context.Employees.FirstOrDefaultAsync(e => e.EmployeeId == employeeId);
+                role.Role = await _context.Roles.FirstOrDefaultAsync(e => e.RoleId == roleEmployee.RoleId);
+
+                role.StatusActive = true; // נראה שאתה משנה גם את הסטטוס ל־true כאן
                 await _context.SaveChangesAsync();
-                return position;
+                return role;
 
             };
             await _context.RolesEmployee.AddAsync(roleEmployee);
@@ -62,14 +65,17 @@ namespace EmployeesManagement.Data.Repositories
 
             return false;
         }
+      
         public async Task<IEnumerable<RoleEmployee>> GetEmployeeRolesAsync(int employeeId)
         {
-            return await _context.RolesEmployee.Where(e => e.EmployeeId == employeeId && e.StatusActive == true).ToListAsync();
+            return await _context.RolesEmployee.Where(e => e.EmployeeId == employeeId && e.StatusActive ).ToListAsync();
         }
 
-        public async Task<IEnumerable<RoleEmployee>> GetEmployeeRoleByIdAsync(int employeeId, int roleId)
+        public async Task<RoleEmployee> GetEmployeeRoleByIdAsync(int employeeId, int roleId)
         {
-            return await _context.RolesEmployee.Where(e => e.EmployeeId == employeeId && e.RoleId == roleId).ToListAsync();
+            return await _context.RolesEmployee.FirstOrDefaultAsync(e => e.EmployeeId == employeeId && e.RoleId == roleId);
+                
         }
+
     }
 }

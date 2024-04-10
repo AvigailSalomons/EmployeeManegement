@@ -1,43 +1,42 @@
-
-<h2 class="dialog-title">Add Position</h2>
+<h2 class="dialog-title">Add role</h2>
 <div class="dialog-content" id="dialog-content">
-  <form  [formGroup]="PositionEmployeeForm" class="form">
+  <form [formGroup]="RoleEmployeeForm" class="form">
     <div class="form-row">
       <mat-form-field class="form-field">
-      <mat-select placeholder="Choose Position" formControlName="roleName">
-        <mat-option *ngFor="let position of positionlist" [value]="position.roleName">  {{ position.roleName }}</mat-option>
-   </mat-select>
-   <mat-error *ngIf="PositionEmployeeForm.get('roleName').invalid && PositionEmployeeForm.get('roleName').touched"> * Position is Required filed</mat-error>
- </mat-form-field>
+        <mat-select placeholder="Choose role" formControlName="roleName">
+          <mat-option *ngFor="let role of rolelist" [value]="role.roleName"> {{ role.roleName }}</mat-option>
+        </mat-select>
+        <!-- <mat-error *ngIf="RoleEmployeeForm.value.roleName.invalid && RoleEmployeeForm.get('roleName').touched"> * role is Required filed</mat-error> -->
+      </mat-form-field>
 
     </div>
- 
-      <div class="form-row">
-        <mat-form-field class="form-field">
-          <mat-select placeholder="Is Management" formControlName="isManagement">
-            <mat-option [value]="true">True</mat-option>
-            <mat-option [value]="false">False</mat-option>
-          </mat-select>
-          <mat-error *ngIf="PositionEmployeeForm.get('isManagement').invalid && PositionEmployeeForm.get('isManagement').touched"> *Is Management  is Required filed</mat-error>
-    </mat-form-field>
 
-      </div>
     <div class="form-row">
-        <mat-form-field>
-            <input matInput [matDatepicker]="picker1" formControlName="entryDate" placeholder="Choose an entry date">
-            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-            <mat-datepicker #picker1></mat-datepicker>
-            <mat-error *ngIf="validateEntryDate"> *Entry Date must be after start date </mat-error>
+      <mat-form-field class="form-field">
+        <mat-select placeholder="Is Management" formControlName="isManagement">
+          <mat-option [value]="true">True</mat-option>
+          <mat-option [value]="false">False</mat-option>
+        </mat-select>
+        <!-- <mat-error *ngIf="roleEmployeeForm.get('isManagement').invalid && roleEmployeeForm.get('isManagement').touched"> *Is Management  is Required filed</mat-error> -->
+      </mat-form-field>
 
-          </mat-form-field>
-      </div>
-      
+    </div>
+    <div class="form-row">
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker1" formControlName="entryDate" placeholder="Choose an entry date">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        <mat-error *ngIf="validateEntryDate"> *Entry Date must be after start date </mat-error>
+
+      </mat-form-field>
+    </div>
+
   </form>
 </div>
 <div class="dialog-actions">
-    <div class="btn-group" position="group" aria-label="Default button group">
-        <button type="button" class="btn btn-outline-dark" (click)="close()">Cancel</button>
-        <button type="button" class="btn btn-outli
-        ne-dark" (click)="save()" [disabled]="!PositionEmployeeForm.valid">Save</button>
-      </div>
+  <div class="btn-group" role="group" aria-label="Default button group">
+    <button type="button" class="btn btn-outline-dark" (click)="close()">Cancel</button>
+    <button type="button" class="btn btn-outli
+        ne-dark" (click)="save()">Save</button>
+  </div>
 </div>

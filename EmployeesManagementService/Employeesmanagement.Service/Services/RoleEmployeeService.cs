@@ -21,7 +21,7 @@ namespace Employeesmanagement.Service.Services
         {
             return await _roleEmployeeRepository.GetEmployeeRolesAsync(employeeId);
         }
-        public async Task<IEnumerable<RoleEmployee>> GetEmployeeRoleByIdAsync(int employeeId, int roleId)
+        public async Task<RoleEmployee> GetEmployeeRoleByIdAsync(int employeeId, int roleId)
         {
             return await _roleEmployeeRepository.GetEmployeeRoleByIdAsync(employeeId, roleId);
         }

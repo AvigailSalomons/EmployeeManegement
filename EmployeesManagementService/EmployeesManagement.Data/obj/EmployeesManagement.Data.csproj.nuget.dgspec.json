@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user1\\Desktop\\Now!!!!\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Data\\EmployeesManagement.Data.csproj": {}
+    "C:\\Users\\user1\\Desktop\\‏‏תיקיה חדשה\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Data\\EmployeesManagement.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user1\\Desktop\\Now!!!!\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Core\\EmployeesManagement.Core.csproj": {
+    "C:\\Users\\user1\\Desktop\\‏‏תיקיה חדשה\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Core\\EmployeesManagement.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user1\\Desktop\\Now!!!!\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Core\\EmployeesManagement.Core.csproj",
+        "projectUniqueName": "C:\\Users\\user1\\Desktop\\‏‏תיקיה חדשה\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Core\\EmployeesManagement.Core.csproj",
         "projectName": "EmployeesManagement.Core",
-        "projectPath": "C:\\Users\\user1\\Desktop\\Now!!!!\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Core\\EmployeesManagement.Core.csproj",
+        "projectPath": "C:\\Users\\user1\\Desktop\\‏‏תיקיה חדשה\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Core\\EmployeesManagement.Core.csproj",
         "packagesPath": "C:\\Users\\user1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user1\\Desktop\\Now!!!!\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Core\\obj\\",
+        "outputPath": "C:\\Users\\user1\\Desktop\\‏‏תיקיה חדשה\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user1\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -44,6 +44,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -64,14 +70,14 @@
         }
       }
     },
-    "C:\\Users\\user1\\Desktop\\Now!!!!\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Data\\EmployeesManagement.Data.csproj": {
+    "C:\\Users\\user1\\Desktop\\‏‏תיקיה חדשה\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Data\\EmployeesManagement.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user1\\Desktop\\Now!!!!\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Data\\EmployeesManagement.Data.csproj",
+        "projectUniqueName": "C:\\Users\\user1\\Desktop\\‏‏תיקיה חדשה\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Data\\EmployeesManagement.Data.csproj",
         "projectName": "EmployeesManagement.Data",
-        "projectPath": "C:\\Users\\user1\\Desktop\\Now!!!!\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Data\\EmployeesManagement.Data.csproj",
+        "projectPath": "C:\\Users\\user1\\Desktop\\‏‏תיקיה חדשה\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Data\\EmployeesManagement.Data.csproj",
         "packagesPath": "C:\\Users\\user1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user1\\Desktop\\Now!!!!\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Data\\obj\\",
+        "outputPath": "C:\\Users\\user1\\Desktop\\‏‏תיקיה חדשה\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user1\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -88,8 +94,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\user1\\Desktop\\Now!!!!\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Core\\EmployeesManagement.Core.csproj": {
-                "projectPath": "C:\\Users\\user1\\Desktop\\Now!!!!\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Core\\EmployeesManagement.Core.csproj"
+              "C:\\Users\\user1\\Desktop\\‏‏תיקיה חדשה\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Core\\EmployeesManagement.Core.csproj": {
+                "projectPath": "C:\\Users\\user1\\Desktop\\‏‏תיקיה חדשה\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Core\\EmployeesManagement.Core.csproj"
               }
             }
           }

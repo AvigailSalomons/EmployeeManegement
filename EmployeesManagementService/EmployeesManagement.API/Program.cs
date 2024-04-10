@@ -4,6 +4,7 @@ using EmployeesManagement.Core.Repositories;
 using EmployeesManagement.Core.Services;
 using EmployeesManagement.Data;
 using EmployeesManagement.Data.Repositories;
+using EmployeesManagement.Core.Mapping;
 
 namespace EmployeesManagement.API
 {
@@ -39,9 +40,10 @@ namespace EmployeesManagement.API
             builder.Services.AddAutoMapper(typeof(PostModelsMappingProfile));
             builder.Services.AddDbContext<DataContext>();
 
-            builder.Services.AddAutoMapper(typeof(PostModelsMappingProfile));
-            builder.Services.AddDbContext<DataContext>();
+            builder.Services.AddAutoMapper(typeof(PostModelsMappingProfile),typeof(MappingProfile));
 
+            builder.Services.AddDbContext<DataContext>();
+            
             var app = builder.Build();
 
             if (app.Environment.IsDevelopment())

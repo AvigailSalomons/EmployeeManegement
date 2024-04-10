@@ -14,7 +14,7 @@ import { Employee } from '../../models/employee.model';
 
 
 @Component({
-  selector: 'app-add-position-employee',
+  selector: 'app-add-role-employee',
   standalone: true,
   imports: [
     CommonModule,
@@ -32,13 +32,12 @@ import { Employee } from '../../models/employee.model';
 
 export class AddRoleComponent implements OnInit {
   RolrForm: FormGroup;
-  positionlist: Role[]
+  roleList: Role[]
   roleId: number
   employee: Employee
   constructor(
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<AddRoleComponent>,
-    private router: Router,
     private _roleService: RoleService,
   ) {
 
@@ -48,18 +47,18 @@ export class AddRoleComponent implements OnInit {
   }
   ngOnInit(): void {
 
-    this._roleService.getAllRoles().subscribe(positions => {
-      this.positionlist = positions;
+    this._roleService.getAllRoles().subscribe(roles => {
+      this.roleList = roles;
     });
 
   }
 
   save(): void {
-   
+
     if (this.RolrForm.valid) {
 
       const newRole: Role = {
-        roleName: this.RolrForm.get('roleName').value,
+        roleName: this.RolrForm.value.roleName
       };
       this._roleService.addNewRole(newRole).subscribe({
         next: (res) => {
@@ -68,7 +67,6 @@ export class AddRoleComponent implements OnInit {
       })
     }
     this._roleService.getAllRoles().subscribe();
-    // this.router.navigate(['/employees-table'])
     this.dialogRef.close(this.RolrForm.value);
   }
 

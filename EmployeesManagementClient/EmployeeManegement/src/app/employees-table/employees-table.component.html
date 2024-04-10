@@ -1,19 +1,24 @@
+<button mat-icon-button title="add an employee" color="primary"
+    (click)="openAddEmployeeDialog()"><mat-icon>person_add_alt</mat-icon></button>
+<button mat-icon-button title="add an role" color="primary"
+    (click)="openAddRoleDialog()"><mat-icon>add</mat-icon></button>
 
-<button mat-icon-button color="primary"   (click)="openAddEmployeeDialog()"><mat-icon>add</mat-icon></button>
-<button mat-icon-button color="primary"   (click)="openAddRoleDialog()"><mat-icon>add</mat-icon></button>
 
-  <mat-form-field>
+<button mat-icon-button title="Exported the list to an Excel file" color="primary"
+    (click)="downloadExcel()"><mat-icon>save_alt</mat-icon></button>
+
+<mat-form-field>
     <mat-label>Search</mat-label>
-    <input matInput  (keyup)="applyFilter($event)" placeholder="סינון">
+    <input matInput (keyup)="applyFilter($event)" placeholder="סינון">
 
-  </mat-form-field>
-<mat-table  [dataSource]="employees" class="custom-table">
+</mat-form-field>
+<mat-table [dataSource]="employees" class="custom-table">
 
 
     <!-- First Name Column -->
     <ng-container matColumnDef="firstName">
         <mat-header-cell *matHeaderCellDef> First Name </mat-header-cell>
-        <mat-cell *matCellDef="let employee" > {{employee.firstName}} </mat-cell>
+        <mat-cell *matCellDef="let employee"> {{employee.firstName}} </mat-cell>
     </ng-container>
 
     <!-- Last Name Column -->
@@ -45,7 +50,7 @@
             </button>
         </mat-cell>
     </ng-container>
-    
+
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>

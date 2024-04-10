@@ -8,17 +8,18 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { ActivatedRoute, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { AddEmployeeComponent } from '../add-employee/add-employee.component';
 import { Role } from '../../models/role.model';
 import { RoleService } from '../role.service';
 import { AddRoleComponent } from '../add-role/add-role.component';
+import { exportToExcel } from '../ExportEmployeeTableToExcelComponent';
+import { AddEmployeeComponent } from '../add-employee/add-employee.component';
 
 
 @Component({
   selector: 'app-employees-table',
-  standalone: true, // Removed standalone
+  standalone: true,
   imports: [
     CommonModule,
     MatTableModule,
@@ -27,10 +28,9 @@ import { AddRoleComponent } from '../add-role/add-role.component';
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
-    AddEmployeeComponent // AddEmployeeComponent should not be here
   ],
   templateUrl: './employees-table.component.html',
-  styleUrls: ['./employees-table.component.scss'] // Changed styleUrl to styleUrls
+  styleUrls: ['./employees-table.component.scss'] 
 })
 export class EmployeesTableComponent implements OnInit {
   displayedColumns: string[] = ['firstName', 'lastName', 'identity', 'entryDate', 'actions'];
@@ -39,7 +39,7 @@ export class EmployeesTableComponent implements OnInit {
   roles: MatTableDataSource<Role>;
   constructor(private _employeeService: EmployeeService, private router: Router,
     private dialog: MatDialog,
-   private _roleService: RoleService) { this.getEmployees() }
+    private _roleService: RoleService) { this.getEmployees() }
 
   ngOnInit(): void {
     this.getEmployees();
@@ -51,11 +51,16 @@ export class EmployeesTableComponent implements OnInit {
     this._employeeService.getEmployeeList().subscribe({
       next: (result) => {
         this.employees = new MatTableDataSource<Employee>(result);
-        console.log(this.employees);
+
       },
     });
   }
-
+  downloadExcel() {
+    const filename = window.prompt("Please enter file name:");
+    if (filename) {
+      exportToExcel(this.employees, filename);
+    }
+  };
   deleteEmployee(employee: Employee): void {
     this._employeeService.deleteEmployee(employee.employeeId!).subscribe({
       next: () => {
@@ -109,3 +114,5 @@ export class EmployeesTableComponent implements OnInit {
     this.employees.filter = filterValue;
   }
 }
+
+

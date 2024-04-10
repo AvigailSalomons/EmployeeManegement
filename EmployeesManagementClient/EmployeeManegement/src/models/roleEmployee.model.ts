@@ -3,4 +3,5 @@ export class RoleEmployee {
    roleName:string
    entryDate:Date
    isManagement:boolean
+   
 }

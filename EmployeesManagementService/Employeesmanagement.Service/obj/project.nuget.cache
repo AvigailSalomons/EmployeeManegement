@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "T9wrKoO1QIhM6QZ20dhjCLS+OCHndzD/4nDFwhGzhhEBpcEmFsbiveA/6Yf3l2QLb5CS+YvljHznLQYZFJZJOA==",
+  "dgSpecHash": "aStJ6XHSElbw/YI1562QChqeSU8LixZd1SVNozk9Tqla/nw5tLwvP6t5gCgIWMcY/7Af5CtOuCsTLwXhE69ktw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user1\\Desktop\\Now!!!!\\EmployeeManegement\\EmployeesManagementService\\Employeesmanagement.Service\\Employeesmanagement.Service.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\user1\\Desktop\\‏‏תיקיה חדשה\\EmployeeManegement\\EmployeesManagementService\\Employeesmanagement.Service\\Employeesmanagement.Service.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\user1\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\user1\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\user1\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\user1\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\user1\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, map } from 'rxjs';
 import { Employee } from '../models/employee.model';
 import { RoleEmployee } from '../models/roleEmployee.model';
-import { RoleService } from './role.service';
+import { EmployeeRolePostModel } from '../models/EmployeeRoleOstModel';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,6 @@ export class EmployeeService {
 
   private baseUrl: string = 'https://localhost:7000/api/Employees';
   
-  private _roleService: RoleService;
-
   constructor(private http: HttpClient) {}
   
   getEmployeeList(): Observable<Employee[]> {
@@ -33,17 +31,9 @@ export class EmployeeService {
   }
 
   deleteEmployee(id: number): Observable<Employee> {
-    console.log("deleteEmployee-3")
     return this.http.delete<Employee>(`${this.baseUrl}/${id}`); 
   }
-  
-  // getRolesOfEmployeeList(id:number): Observable<RoleEmployee[]> {
-  //   console.log("getRolesOfEmployeeList-service")
-  //   console.log(`${this.baseUrl}/${id}/roles`)
-
-  //   // console.log(this.http.get<RoleEmployee[]>(`${this.baseUrl}/${id}/roles`).forEach(x->x.toString()))
-  //   return this.http.get<RoleEmployee[]>(`${this.baseUrl}/${id}/roles`); 
-  // }
+  //private roleUrl: string = `${this.baseUrl}/${id}/role`;
   getRolesOfEmployeeList(id: number): Observable<RoleEmployee[]> {
   
     const url = `${this.baseUrl}/${id}/role`;
@@ -59,19 +49,15 @@ export class EmployeeService {
   }
   
 
-  getRoleOfEmployeeById(employeeId:number, roleId:number): Observable<RoleEmployee> {
-    console.log(`${this.baseUrl}/${employeeId}/role/${roleId}`)
-    return this.http.get<RoleEmployee>(`${this.baseUrl}/${employeeId}/role/${roleId}`); 
+  getRoleOfEmployeeById(employeeId:number, roleId:number): Observable<EmployeeRolePostModel> {
+    return this.http.get<EmployeeRolePostModel>(`${this.baseUrl}/${employeeId}/role/${roleId}`); 
   }
 
-  addNewRoleToEmployee(employeeId:number, roleEmp: RoleEmployee): Observable<RoleEmployee> { 
-
-    console.log(employeeId,roleEmp)
-    return this.http.post<RoleEmployee>(`${this.baseUrl}/${employeeId}/role`, roleEmp);
+  addNewRoleToEmployee(employeeId:number, roleEmp: EmployeeRolePostModel): Observable<EmployeeRolePostModel> { 
+    return this.http.post<EmployeeRolePostModel>(`${this.baseUrl}/${employeeId}/role`, roleEmp);
   }
 
-  updateRoleOfEmployee(employeeId: number, roleId:number, roleEmp: RoleEmployee): Observable<Employee> {
-console.log(`${this.baseUrl}/${employeeId}/role/${roleId}`, roleEmp)
+  updateRoleOfEmployee(employeeId: number, roleId:number, roleEmp: EmployeeRolePostModel): Observable<Employee> {
     return this.http.put<Employee>(`${this.baseUrl}/${employeeId}/role/${roleId}`, roleEmp); 
   }
 

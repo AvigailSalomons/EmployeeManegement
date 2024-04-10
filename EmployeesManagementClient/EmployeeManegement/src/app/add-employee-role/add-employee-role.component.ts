@@ -8,28 +8,28 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dial
 import { Router } from '@angular/router'
 import { EmployeeService } from '../employees.service';
 import { RoleService } from '../role.service';
-import { RoleEmployee } from '../../models/roleEmployee.model';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { FormsModule ,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { EmployeeRolePostModel } from '../../models/EmployeeRoleOstModel';
 
 @Component({
   selector: 'app-add-employee-role',
   standalone: true,
-  imports: [MatSelectModule,MatDatepickerModule,MatNativeDateModule
-    ,CommonModule,FormsModule,ReactiveFormsModule,MatFormFieldModule,
+  imports: [MatSelectModule, MatDatepickerModule, MatNativeDateModule
+    , CommonModule, FormsModule, ReactiveFormsModule, MatFormFieldModule,
     MatInputModule],
   templateUrl: './add-employee-role.component.html',
   styleUrl: './add-employee-role.component.scss'
 })
 
-export class AddEmployeeRoleComponent implements OnInit{
-  PositionEmployeeForm: FormGroup;
-  positionlist:Role[]
-  employeeId:number
-  employee:Employee
+export class AddEmployeeRoleComponent implements OnInit {
+  RoleEmployeeForm: FormGroup;
+  rolelist: Role[]
+  employeeId: number
+  employee: Employee
   validateEntryDate(control: FormControl) {
     const entryDate = new Date(control.value);
     if (this.employee && new Date(entryDate) < new Date(this.employee.entryDate)) {
@@ -40,60 +40,57 @@ export class AddEmployeeRoleComponent implements OnInit{
   constructor(
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<AddEmployeeRoleComponent>,
-    private _employeeService:EmployeeService,
-    private router:Router,
-    private _positionService:RoleService,
-    private dialog: MatDialog, 
+    private _employeeService: EmployeeService,
+    private router: Router,
+    private _roleservice: RoleService,
+    private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: { employeeId: number },
   ) {
 
     this.employeeId = data.employeeId;
-    this.PositionEmployeeForm = this.formBuilder.group({
-      roleName: ['', Validators.required],
-      isManagement:['', Validators.required],
-      entryDate: ['', [ Validators.required,this.validateEntryDate.bind(this)]],
-    });
+
   }
- 
+
   ngOnInit(): void {
-  
+
     this._employeeService.getEmployeeById(this.employeeId).subscribe(employee => {
       this.employee = employee;
     });
-    this._positionService.getEmployeeRolesNotAssigned(this.employeeId).subscribe(positions => {
-      this.positionlist = positions;
+    this._roleservice.getEmployeeRolesNotAssigned(this.employeeId).subscribe(roles => {
+      this.rolelist = roles;
     });
     // קריאה לפונקציית האימות בזמן שינוי בתאריך
-  
+    this.RoleEmployeeForm = this.formBuilder.group({
+      roleName: ['', Validators.required],
+      isManagement: ['', Validators.required],
+      entryDate: ['', [Validators.required, this.validateEntryDate.bind(this)]],
+    });
   }
 
 
   save(): void {
-  
-    if (this.PositionEmployeeForm.valid) {
-      const role = this.positionlist.find(role => role.roleName === this.PositionEmployeeForm.value.roleName,);
-       
-      const newPositionEmployee: RoleEmployee = {
-        roleName: this.PositionEmployeeForm.value.roleName,
+
+    if (this.RoleEmployeeForm.valid) {
+      const role = this.rolelist.find(role => role.roleName === this.RoleEmployeeForm.value.roleName,);
+
+      const newRoleEmployee: EmployeeRolePostModel = {
         roleId: role.roleId,
-        isManagement:  this.PositionEmployeeForm.value.isManagement,
-        entryDate: this.PositionEmployeeForm.value.entryDate,
+        isManagement: this.RoleEmployeeForm.value.isManagement,
+        employeeId: this.employeeId,
+        entryDate: this.RoleEmployeeForm.value.entryDate,
       };
-     
-      this._employeeService.addNewRoleToEmployee(this.employeeId,newPositionEmployee).subscribe(()=>{
-        // this.router.navigate(['/editRoleEmployee',this.employeeId])
-      this.dialogRef.close(this.PositionEmployeeForm.value);}
 
-    )
+      this._employeeService.addNewRoleToEmployee(this.employeeId, newRoleEmployee).subscribe(() => {
+        this.dialogRef.close(this.RoleEmployeeForm.value);
+      }
 
-      
-  }
-
+      )
+    }
   }
 
 
   close(): void {
     this.dialogRef.close();
   }
-  
+
 }

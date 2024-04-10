@@ -1,4 +1,4 @@
-<form  *ngIf="EditPositionEmployeeForm"  [formGroup]="EditPositionEmployeeForm" class="form">
+<form  *ngIf="roleEmployee" [formGroup]="EditRoleEmployeeForm" class="form">
     <div class="form-row">
       <mat-label>סוג תפקיד:</mat-label>
       <mat-form-field class="custom-field">
@@ -17,16 +17,17 @@
         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
         <mat-datepicker #picker1></mat-datepicker>
       </mat-form-field>
-      <div *ngIf="EditPositionEmployeeForm.get('entryDate').hasError('invalidEntryDate')" class="error-message">
+      <div  class="error-message">
         תאריך הכניסה חייב להיות אחרי תאריך הכניסה לעבודה.
       </div>
     </div>
   
-    <div class="dialog-actions">
-      <div class="btn-group" aria-label="Default button group">
-        <button mat-button color="warn" (click)="close()">ביטול</button>
-        <button mat-raised-button color="primary" (click)="save()" [disabled]="!EditPositionEmployeeForm.valid">שמור</button>
-      </div>
-    </div>
+ 
   </form>
+  <div class="dialog-actions">
+    <div class="btn-group" aria-label="Default button group">
+      <button mat-button color="warn" (click)="close()">ביטול</button>
+      <button mat-raised-button color="primary"  (click)="save()" [disabled]="!EditRoleEmployeeForm">שמור</button>
+    </div>
+  </div>
   
