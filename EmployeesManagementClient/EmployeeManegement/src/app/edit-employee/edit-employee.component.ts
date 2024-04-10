@@ -42,7 +42,6 @@ export class EditEmployeeComponent implements OnInit {
     this._employeeService.getEmployeeById(this.employeeId).subscribe({
       next: (result) => {
         this.updateEmployee = result;
-        console.log(this.updateEmployee)
         this.editEmployeeForm = this.formBuilder.group({
           firstName: [this.updateEmployee.firstName, Validators.required],
           lastName: [this.updateEmployee.lastName, Validators.required],

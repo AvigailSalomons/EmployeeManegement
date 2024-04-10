@@ -59,8 +59,6 @@ export class AddEmployeeComponent {
 
       this._employeeService.addNewEmployee(newEmployee).subscribe({
         next: (res) => {
-          console.log(res)
-          console.log(newEmployee.employeeId)
           this.router.navigate(['/editEmployee', res.employeeId])
 
         },

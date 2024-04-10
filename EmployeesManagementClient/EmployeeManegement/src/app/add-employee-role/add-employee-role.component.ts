@@ -27,7 +27,7 @@ import { EmployeeRolePostModel } from '../../models/EmployeeRoleOstModel';
 
 export class AddEmployeeRoleComponent implements OnInit {
   RoleEmployeeForm: FormGroup;
-  rolelist: Role[]
+  roleList: Role[]
   employeeId: number
   employee: Employee
   validateEntryDate(control: FormControl) {
@@ -41,14 +41,11 @@ export class AddEmployeeRoleComponent implements OnInit {
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<AddEmployeeRoleComponent>,
     private _employeeService: EmployeeService,
-    private router: Router,
     private _roleservice: RoleService,
-    private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: { employeeId: number },
   ) {
 
     this.employeeId = data.employeeId;
-
   }
 
   ngOnInit(): void {
@@ -57,7 +54,7 @@ export class AddEmployeeRoleComponent implements OnInit {
       this.employee = employee;
     });
     this._roleservice.getEmployeeRolesNotAssigned(this.employeeId).subscribe(roles => {
-      this.rolelist = roles;
+      this.roleList = roles;
     });
     // קריאה לפונקציית האימות בזמן שינוי בתאריך
     this.RoleEmployeeForm = this.formBuilder.group({
@@ -71,7 +68,7 @@ export class AddEmployeeRoleComponent implements OnInit {
   save(): void {
 
     if (this.RoleEmployeeForm.valid) {
-      const role = this.rolelist.find(role => role.roleName === this.RoleEmployeeForm.value.roleName,);
+      const role = this.roleList.find(role => role.roleName === this.RoleEmployeeForm.value.roleName,);
 
       const newRoleEmployee: EmployeeRolePostModel = {
         roleId: role.roleId,

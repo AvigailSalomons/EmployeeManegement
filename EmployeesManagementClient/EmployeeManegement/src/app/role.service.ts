@@ -15,7 +15,6 @@ export class RoleService {
     return this.http.post<Role>(`${this.baseUrl}`, role); 
   }
   getAllRoles(): Observable<Role[]> {
-    console.log("getAllRoles-service");
     return this.http.get<Role[]>(this.baseUrl);
 
   }

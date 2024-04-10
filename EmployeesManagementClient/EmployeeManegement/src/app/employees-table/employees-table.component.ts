@@ -93,7 +93,6 @@ export class EmployeesTableComponent implements OnInit {
     this._roleService.getAllRoles().subscribe({
       next: (result) => {
         this.roles = new MatTableDataSource<Role>(result);
-        console.log(this.roles);
       },
     });
   }
