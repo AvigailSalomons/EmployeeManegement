@@ -7,7 +7,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { Router } from '@angular/router';
 import { RoleService } from '../role.service';
 import { Role } from '../../models/role.model';
 import { Employee } from '../../models/employee.model';
@@ -31,7 +30,7 @@ import { Employee } from '../../models/employee.model';
 })
 
 export class AddRoleComponent implements OnInit {
-  RolrForm: FormGroup;
+  addRoleForm: FormGroup;
   roleList: Role[]
   roleId: number
   employee: Employee
@@ -41,7 +40,7 @@ export class AddRoleComponent implements OnInit {
     private _roleService: RoleService,
   ) {
 
-    this.RolrForm = this.formBuilder.group({
+    this.addRoleForm = this.formBuilder.group({
       roleName: ['', Validators.required],
     });
   }
@@ -55,10 +54,10 @@ export class AddRoleComponent implements OnInit {
 
   save(): void {
 
-    if (this.RolrForm.valid) {
+    if (this.addRoleForm.valid) {
 
       const newRole: Role = {
-        roleName: this.RolrForm.value.roleName
+        roleName: this.addRoleForm.value.roleName
       };
       this._roleService.addNewRole(newRole).subscribe({
         next: (res) => {
@@ -67,7 +66,7 @@ export class AddRoleComponent implements OnInit {
       })
     }
     this._roleService.getAllRoles().subscribe();
-    this.dialogRef.close(this.RolrForm.value);
+    this.dialogRef.close(this.addRoleForm.value);
   }
 
   close(): void {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeService } from '../employees.service';
-import { Employee } from '../../models/employee.model';
+import { MatDialog } from '@angular/material/dialog';
+import {  Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
@@ -8,14 +8,13 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {  Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
 import { Role } from '../../models/role.model';
 import { RoleService } from '../role.service';
 import { AddRoleComponent } from '../add-role/add-role.component';
 import { exportToExcel } from '../ExportEmployeeTableToExcelComponent';
 import { AddEmployeeComponent } from '../add-employee/add-employee.component';
-
+import { Employee } from '../../models/employee.model';
+import { EmployeeService } from '../employees.service';
 
 @Component({
   selector: 'app-employees-table',

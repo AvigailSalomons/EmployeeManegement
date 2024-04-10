@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
@@ -9,7 +10,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { Employee } from '../../models/employee.model';
 import { EmployeeService } from '../employees.service';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-add-employee',
@@ -27,14 +28,14 @@ import { Router } from '@angular/router';
 
 
 export class AddEmployeeComponent {
-  employeeForm: FormGroup;
+  addEmployeeForm: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<AddEmployeeComponent>,
     private _employeeService: EmployeeService,
     private router: Router
   ) {
-    this.employeeForm = this.formBuilder.group({
+    this.addEmployeeForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       identity: ['', [Validators.required, Validators.pattern('^[0-9]{9}$')]],
@@ -47,14 +48,14 @@ export class AddEmployeeComponent {
 
 
   save(): void {
-    if (this.employeeForm.valid) {
+    if (this.addEmployeeForm.valid) {
       const newEmployee: Employee = {
-        firstName: this.employeeForm.get('firstName').value,
-        lastName: this.employeeForm.get('lastName').value,
-        identity: this.employeeForm.get('identity').value,
-        birthDate: this.employeeForm.get('birthDate').value,
-        entryDate: this.employeeForm.get('entryDate').value,
-        gender: this.employeeForm.get('gender').value
+        firstName: this.addEmployeeForm.get('firstName').value,
+        lastName: this.addEmployeeForm.get('lastName').value,
+        identity: this.addEmployeeForm.get('identity').value,
+        birthDate: this.addEmployeeForm.get('birthDate').value,
+        entryDate: this.addEmployeeForm.get('entryDate').value,
+        gender: this.addEmployeeForm.get('gender').value
       };
 
       this._employeeService.addNewEmployee(newEmployee).subscribe({
@@ -65,7 +66,7 @@ export class AddEmployeeComponent {
       })
     }
     this._employeeService.getEmployeeList().subscribe();
-    this.dialogRef.close(this.employeeForm.value);
+    this.dialogRef.close(this.addEmployeeForm.value);
   }
 
   close(): void {

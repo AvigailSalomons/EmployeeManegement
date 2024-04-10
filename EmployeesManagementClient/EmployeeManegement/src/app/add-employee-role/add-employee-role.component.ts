@@ -1,20 +1,18 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Role } from '../../models/role.model';
-import { Employee } from '../../models/employee.model';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { Router } from '@angular/router'
-import { EmployeeService } from '../employees.service';
-import { RoleService } from '../role.service';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { EmployeeService } from '../employees.service';
+import { RoleService } from '../role.service';
 import { EmployeeRolePostModel } from '../../models/EmployeeRoleOstModel';
-
+import { Role } from '../../models/role.model';
+import { Employee } from '../../models/employee.model';
 @Component({
   selector: 'app-add-employee-role',
   standalone: true,

@@ -1,6 +1,6 @@
 <h2 class="dialog-title">Add Employee</h2>
 <div class="dialog-content" id="dialog-content">
-  <form [formGroup]="employeeForm" class="form">
+  <form [formGroup]="addEmployeeForm" class="form">
     <div class="form-row">
       <mat-form-field class="form-field">
         <input matInput placeholder="First Name" formControlName="firstName">
@@ -44,6 +44,6 @@
 <div class="dialog-actions">
   <div class="btn-group" position="group" aria-label="Default button group">
     <button type="button" class="btn btn-outline-dark" (click)="close()">Cancel</button>
-    <button type="button" class="btn btn-outline-dark" (click)="save()" [disabled]="!employeeForm.valid">Save</button>
+    <button type="button" class="btn btn-outline-dark" (click)="save()" [disabled]="!addEmployeeForm.valid">Save</button>
   </div>
 </div>
