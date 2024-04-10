@@ -26,7 +26,7 @@ namespace EmployeesManagement.Data.Repositories
                 role.Employee = await _context.Employees.FirstOrDefaultAsync(e => e.EmployeeId == employeeId);
                 role.Role = await _context.Roles.FirstOrDefaultAsync(e => e.RoleId == roleEmployee.RoleId);
 
-                role.StatusActive = true; // נראה שאתה משנה גם את הסטטוס ל־true כאן
+                role.StatusActive = true; 
                 await _context.SaveChangesAsync();
                 return role;
 
@@ -37,15 +37,15 @@ namespace EmployeesManagement.Data.Repositories
         }
         public async Task<RoleEmployee> UpdateRoleToEmployeeAsync(int employeeId, int roleId, RoleEmployee roleEmployee)
         {
-            var position = await _context.RolesEmployee.FirstOrDefaultAsync(e => e.EmployeeId == employeeId
+            var role = await _context.RolesEmployee.FirstOrDefaultAsync(e => e.EmployeeId == employeeId
             && e.RoleId == roleId);
             if (roleEmployee == null)
             {
                 return null;
             }
 
-            position.EntryDate = roleEmployee.EntryDate;
-            position.IsManagement = roleEmployee.IsManagement;
+            role.EntryDate = roleEmployee.EntryDate;
+            role.IsManagement = roleEmployee.IsManagement;
             await _context.SaveChangesAsync();
             return roleEmployee;
         }

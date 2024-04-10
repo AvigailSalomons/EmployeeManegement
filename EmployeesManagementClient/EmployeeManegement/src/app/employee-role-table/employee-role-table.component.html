@@ -3,7 +3,7 @@
 
 <mat-form-field>
     <mat-label>Search</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="סינון">
+    <input matInput (keyup)="applyFilter($event)" placeholder="filtering">
 </mat-form-field>
 <mat-table [dataSource]="rolesOfEmployees">
 
@@ -11,27 +11,27 @@
     <!-- role Name Column -->
     <ng-container matColumnDef="roleName">
         <mat-header-cell *matHeaderCellDef> Role Name </mat-header-cell>
-        <mat-cell *matCellDef="let roleEmployee"> {{roleEmployee.roleName}} </mat-cell>
+        <mat-cell *matCellDef="let employeeRole"> {{employeeRole.roleName}} </mat-cell>
     </ng-container>
 
     <!-- Entry Date Column -->
     <ng-container matColumnDef="entryDate">
         <mat-header-cell *matHeaderCellDef> Entry Date </mat-header-cell>
-        <mat-cell *matCellDef="let roleEmployee"> {{roleEmployee.entryDate}} </mat-cell>
+        <mat-cell *matCellDef="let employeeRole"> {{employeeRole.entryDate}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="isManagement">
         <mat-header-cell *matHeaderCellDef> Is Management </mat-header-cell>
-        <mat-cell *matCellDef="let roleEmployee"> {{ roleEmployee.isManagement ? 'TRUE' : 'FALSE' }} </mat-cell>
+        <mat-cell *matCellDef="let employeeRole"> {{ employeeRole.isManagement ? 'TRUE' : 'FALSE' }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
-        <mat-cell *matCellDef="let roleEmployee">
-            <button mat-icon-button (click)="openEditRoleOfEmployeeDialog(roleEmployee)" class="button">
+        <mat-cell *matCellDef="let employeeRole">
+            <button mat-icon-button (click)="openEditRoleOfEmployeeDialog(employeeRole)" class="button">
                 <mat-icon>edit</mat-icon>
             </button>
-            <button mat-icon-button (click)="deleteRoleOfEmployee(roleEmployee)" class="button">
+            <button mat-icon-button (click)="deleteRoleOfEmployee(employeeRole)" class="button">
                 <mat-icon>delete</mat-icon>
             </button>
         </mat-cell>

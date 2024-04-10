@@ -1,4 +1,4 @@
-export class RoleEmployee {
+export class employeeRole {
    roleId: number
    roleName:string
    entryDate:Date

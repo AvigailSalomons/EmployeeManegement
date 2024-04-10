@@ -9,8 +9,8 @@ export const routes: Routes = [
     { path: 'employeesTable', component:EmployeesTableComponent },
     { path: 'addEmployee', component:EmployeesTableComponent },
     { path: 'editEmployee/:id', component:EditEmployeeComponent },
-    { path: 'addRoleEmployee/:id', component:AddEmployeeRoleComponent },
-    { path: 'editRoleEmployee/:id', component:EditEmployeeRoleComponent },
+    { path: 'addemployeeRole/:id', component:AddEmployeeRoleComponent },
+    { path: 'editemployeeRole/:id', component:EditEmployeeRoleComponent },
     { path: '**', component:NotFoundComponent },
 
 ];

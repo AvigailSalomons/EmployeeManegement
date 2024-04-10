@@ -7,7 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialog } from '@angular/material/dialog';
-import { RoleEmployee } from '../../models/roleEmployee.model';
+import { employeeRole } from '../../models/roleEmployee.model';
 import { Role } from '../../models/role.model';
 import { RoleService } from '../role.service';
 import { EmployeeService } from '../employees.service';
@@ -20,7 +20,6 @@ import { AddEmployeeRoleComponent } from '../add-employee-role/add-employee-role
   standalone: true,
   imports: [
     ReactiveFormsModule,
-
     CommonModule,
     MatTableModule,
     MatIconModule,
@@ -36,7 +35,7 @@ import { AddEmployeeRoleComponent } from '../add-employee-role/add-employee-role
 export class EmployeeRoleTableComponent implements OnInit {
   @Input() employeeId: number
   displayedColumns: string[] = ['roleName', 'entryDate', 'isManagement', 'actions'];
-  rolesOfEmployees: MatTableDataSource<RoleEmployee>;
+  rolesOfEmployees: MatTableDataSource<employeeRole>;
   roles: Role[];
   filter!: string;
 
@@ -59,39 +58,39 @@ export class EmployeeRoleTableComponent implements OnInit {
 
     this._employeeService.getRolesOfEmployeeList(this.employeeId).subscribe({
       next: (result) => {
-        const roleDataWithNames = result.map((roleEmployee) => {
-          const role = this.roles.find((role) => role.roleId === roleEmployee.roleId);
-          return { ...roleEmployee, roleName: role.roleName || 'Role Not Found' };
+        const roleDataWithNames = result.map((employeeRole) => {
+          const role = this.roles.find((role) => role.roleId === employeeRole.roleId);
+          return { ...employeeRole, roleName: role.roleName || 'Role Not Found' };
         });
-        this.rolesOfEmployees = new MatTableDataSource<RoleEmployee>(roleDataWithNames);
+        this.rolesOfEmployees = new MatTableDataSource<employeeRole>(roleDataWithNames);
       },
     });
   }
 
 
-  deleteRoleOfEmployee(roleEmployee: RoleEmployee): void {
-    this._employeeService.deleteRoleOfEmployee(this.employeeId, roleEmployee.roleId).subscribe({
+  deleteRoleOfEmployee(employeeRole: employeeRole): void {
+    this._employeeService.deleteRoleOfEmployee(this.employeeId, employeeRole.roleId).subscribe({
       next: (response) => {
 
         this._employeeService.getRolesOfEmployeeList(this.employeeId).subscribe({
           next: (result) => {
-            const roleDataWithNames = result.map((roleEmployee) => {
-              const role = this.roles.find((role) => role.roleId === roleEmployee.roleId);
-              return { ...roleEmployee, roleName: role.roleName || 'Role Not Found' };
+            const roleDataWithNames = result.map((employeeRole) => {
+              const role = this.roles.find((role) => role.roleId === employeeRole.roleId);
+              return { ...employeeRole, roleName: role.roleName || 'Role Not Found' };
             });
-            this.rolesOfEmployees = new MatTableDataSource<RoleEmployee>(roleDataWithNames);
+            this.rolesOfEmployees = new MatTableDataSource<employeeRole>(roleDataWithNames);
           },
         });
       }
     });
   }
 
-  openEditRoleOfEmployeeDialog(roleEmployee: RoleEmployee): void {
-    console.log(this.employeeId, roleEmployee.roleId, "openEditRoleOfEmployeeDialog")
+  openEditRoleOfEmployeeDialog(employeeRole: employeeRole): void {
+    console.log(this.employeeId, employeeRole.roleId, "openEditRoleOfEmployeeDialog")
     const dialogRef = this.dialog.open(EditEmployeeRoleComponent, {
       width: '50%',
       height: '70%',
-      data: { employeeId: this.employeeId, roleId: roleEmployee.roleId }
+      data: { employeeId: this.employeeId, roleId: employeeRole.roleId }
 
     });
 

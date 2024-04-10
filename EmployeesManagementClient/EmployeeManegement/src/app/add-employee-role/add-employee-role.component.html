@@ -1,12 +1,12 @@
 <h2 class="dialog-title">Add role</h2>
 <div class="dialog-content" id="dialog-content">
-  <form [formGroup]="RoleEmployeeForm" class="form">
+  <form [formGroup]="employeeRoleForm" class="form">
     <div class="form-row">
       <mat-form-field class="form-field">
         <mat-select placeholder="Choose role" formControlName="roleName">
           <mat-option *ngFor="let role of roleList" [value]="role.roleName"> {{ role.roleName }}</mat-option>
         </mat-select>
-        <!-- <mat-error *ngIf="RoleEmployeeForm.value.roleName.invalid && RoleEmployeeForm.get('roleName').touched"> * role is Required filed</mat-error> -->
+        <!-- <mat-error *ngIf="employeeRoleForm.value.roleName.invalid && employeeRoleForm.get('roleName').touched"> * role is Required filed</mat-error> -->
       </mat-form-field>
 
     </div>
@@ -17,7 +17,7 @@
           <mat-option [value]="true">True</mat-option>
           <mat-option [value]="false">False</mat-option>
         </mat-select>
-        <!-- <mat-error *ngIf="roleEmployeeForm.get('isManagement').invalid && roleEmployeeForm.get('isManagement').touched"> *Is Management  is Required filed</mat-error> -->
+        <!-- <mat-error *ngIf="employeeRoleForm.get('isManagement').invalid && employeeRoleForm.get('isManagement').touched"> *Is Management  is Required filed</mat-error> -->
       </mat-form-field>
 
     </div>

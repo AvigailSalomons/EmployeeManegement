@@ -73,9 +73,9 @@ namespace EmployeesManagement.API.Controllers
         }
 
         [HttpPost("{employeeId}/role")]
-        public async Task<ActionResult<RoleEmployee>> AddRole(int employeeId, [FromBody] RoleEmployeePostModel employeeRole)
+        public async Task<ActionResult<RoleEmployee>> AddRole(int employeeId, [FromBody] RoleEmployeePostModel roleEmployee)
         {
-            var newEmployeeRole = await _roleEmployeeService.AddRoleToEmployeeAsync(employeeId, _mapper.Map<RoleEmployee>(employeeRole));
+            var newEmployeeRole = await _roleEmployeeService.AddRoleToEmployeeAsync(employeeId, _mapper.Map<RoleEmployee>(roleEmployee));
             if (newEmployeeRole == null)
             {
                 return NotFound();

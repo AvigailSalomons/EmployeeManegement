@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map } from 'rxjs';
 import { Employee } from '../models/employee.model';
-import { RoleEmployee } from '../models/roleEmployee.model';
+import { employeeRole } from '../models/roleEmployee.model';
 import { EmployeeRolePostModel } from '../models/EmployeeRoleOstModel';
 
 @Injectable({
@@ -34,11 +34,11 @@ export class EmployeeService {
     return this.http.delete<Employee>(`${this.baseUrl}/${id}`); 
   }
   //private roleUrl: string = `${this.baseUrl}/${id}/role`;
-  getRolesOfEmployeeList(id: number): Observable<RoleEmployee[]> {
+  getRolesOfEmployeeList(id: number): Observable<employeeRole[]> {
   
     const url = `${this.baseUrl}/${id}/role`;
   
-    return this.http.get<RoleEmployee[]>(url).pipe(
+    return this.http.get<employeeRole[]>(url).pipe(
       map((roles) => {
         return roles;
       }),

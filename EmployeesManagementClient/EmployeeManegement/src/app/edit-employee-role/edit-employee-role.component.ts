@@ -25,12 +25,12 @@ import { EmployeeRolePostModel } from '../../models/EmployeeRoleOstModel';
   styleUrl: './edit-employee-role.component.scss'
 })
 export class EditEmployeeRoleComponent implements OnInit {
-  EditRoleEmployeeForm: FormGroup;
-  rolelist: Role[]
+  EditemployeeRoleForm: FormGroup;
+  roleList: Role[]
   employeeId: number
   roleId: number
   employee: Employee
-  roleEmployee: EmployeeRolePostModel
+  employeeRole: EmployeeRolePostModel
   roles: Role[];
 
   constructor(
@@ -59,17 +59,17 @@ export class EditEmployeeRoleComponent implements OnInit {
       this.roles = roles;
     });
     this._roleservice.getEmployeeRolesNotAssigned(this.employeeId).subscribe(roles => {
-      this.rolelist = roles;
+      this.roleList = roles;
     });
 
     this._employeeService.getEmployeeById(this.employeeId).subscribe(employee => {
       this.employee = employee;
     });
     this._employeeService.getRoleOfEmployeeById(this.employeeId, this.roleId).subscribe(pe => {
-      this.roleEmployee = pe;
-      this.EditRoleEmployeeForm = this.formBuilder.group({
-        isManagement: [this.roleEmployee.isManagement, Validators.required],
-        entryDate: [this.roleEmployee.entryDate, Validators.required]
+      this.employeeRole = pe;
+      this.EditemployeeRoleForm = this.formBuilder.group({
+        isManagement: [this.employeeRole.isManagement, Validators.required],
+        entryDate: [this.employeeRole.entryDate, Validators.required]
       });
       
     });
@@ -79,13 +79,13 @@ export class EditEmployeeRoleComponent implements OnInit {
 
   save(): void {
     const role = this.roles.find(role => role.roleId === this.data.roleId);
-    const updateroleEmployee: EmployeeRolePostModel = this.roleEmployee;
-    updateroleEmployee.entryDate = this.EditRoleEmployeeForm.value.entryDate,
-        updateroleEmployee.isManagement=this.EditRoleEmployeeForm.value.isManagement,
-      this._employeeService.updateRoleOfEmployee(this.employeeId, this.roleId, updateroleEmployee).subscribe({
+    const updateemployeeRole: EmployeeRolePostModel = this.employeeRole;
+    updateemployeeRole.entryDate = this.EditemployeeRoleForm.value.entryDate,
+        updateemployeeRole.isManagement=this.EditemployeeRoleForm.value.isManagement,
+      this._employeeService.updateRoleOfEmployee(this.employeeId, this.roleId, updateemployeeRole).subscribe({
         next: (res) => {
           this.router.navigate(['/editEmployee', this.employeeId])
-          this.dialogRef.close(this.EditRoleEmployeeForm.value);
+          this.dialogRef.close(this.EditemployeeRoleForm.value);
         },
       })
   }

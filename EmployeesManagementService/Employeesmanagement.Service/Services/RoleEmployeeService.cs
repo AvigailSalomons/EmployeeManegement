@@ -34,9 +34,9 @@ namespace Employeesmanagement.Service.Services
         {
             return await _roleEmployeeRepository.UpdateRoleToEmployeeAsync(employeeId, roleId, roleEmployee);
         }
-        public async Task<bool> DeleteRoleOfEmployeeAsync(int employeeId, int positionId)
+        public async Task<bool> DeleteRoleOfEmployeeAsync(int employeeId, int roleId)
         {
-            return await _roleEmployeeRepository.DeleteRoleOfEmployeeAsync(employeeId, positionId);
+            return await _roleEmployeeRepository.DeleteRoleOfEmployeeAsync(employeeId, roleId);
         }
     
     }

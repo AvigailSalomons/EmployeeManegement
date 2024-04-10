@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bhsVGWXZrRUJvPUCloXmfZiJYTLuQm3ipDpWBf1hvu35V6tInPJ7JODzRE9ieGhuMFMoNDDS2VTOgvSQB9VCFw==",
+  "dgSpecHash": "jY5vKkl/af1i6oaI5KIsoo9ptR+zVPg+t1QpHLZprY9D92xsPu7HmOozVy5pX+KiMTdhYiCLm0TOuViZYG/a3A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user1\\Desktop\\‏‏תיקיה חדשה\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Data\\EmployeesManagement.Data.csproj",
+  "projectFilePath": "C:\\Users\\user1\\Desktop\\‏‏תיקיה חדשה (2)\\EmployeeManegement\\EmployeesManagementService\\EmployeesManagement.Data\\EmployeesManagement.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user1\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

@@ -26,7 +26,7 @@ import { EmployeeRolePostModel } from '../../models/EmployeeRoleOstModel';
 })
 
 export class AddEmployeeRoleComponent implements OnInit {
-  RoleEmployeeForm: FormGroup;
+  employeeRoleForm: FormGroup;
   roleList: Role[]
   employeeId: number
   employee: Employee
@@ -57,7 +57,7 @@ export class AddEmployeeRoleComponent implements OnInit {
       this.roleList = roles;
     });
     // קריאה לפונקציית האימות בזמן שינוי בתאריך
-    this.RoleEmployeeForm = this.formBuilder.group({
+    this.employeeRoleForm = this.formBuilder.group({
       roleName: ['', Validators.required],
       isManagement: ['', Validators.required],
       entryDate: ['', [Validators.required, this.validateEntryDate.bind(this)]],
@@ -67,18 +67,18 @@ export class AddEmployeeRoleComponent implements OnInit {
 
   save(): void {
 
-    if (this.RoleEmployeeForm.valid) {
-      const role = this.roleList.find(role => role.roleName === this.RoleEmployeeForm.value.roleName,);
+    if (this.employeeRoleForm.valid) {
+      const role = this.roleList.find(role => role.roleName === this.employeeRoleForm.value.roleName,);
 
-      const newRoleEmployee: EmployeeRolePostModel = {
+      const newemployeeRole: EmployeeRolePostModel = {
         roleId: role.roleId,
-        isManagement: this.RoleEmployeeForm.value.isManagement,
+        isManagement: this.employeeRoleForm.value.isManagement,
         employeeId: this.employeeId,
-        entryDate: this.RoleEmployeeForm.value.entryDate,
+        entryDate: this.employeeRoleForm.value.entryDate,
       };
 
-      this._employeeService.addNewRoleToEmployee(this.employeeId, newRoleEmployee).subscribe(() => {
-        this.dialogRef.close(this.RoleEmployeeForm.value);
+      this._employeeService.addNewRoleToEmployee(this.employeeId, newemployeeRole).subscribe(() => {
+        this.dialogRef.close(this.employeeRoleForm.value);
       }
 
       )

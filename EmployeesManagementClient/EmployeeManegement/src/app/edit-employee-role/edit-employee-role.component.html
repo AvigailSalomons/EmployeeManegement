@@ -1,10 +1,10 @@
-<form  *ngIf="roleEmployee" [formGroup]="EditRoleEmployeeForm" class="form">
+<form  *ngIf="employeeRole" [formGroup]="EditemployeeRoleForm" class="form">
     <div class="form-row">
       <mat-label>type of role:</mat-label>
       <mat-form-field class="custom-field">
         <mat-select formControlName="isManagement" class="custom-select">
           <mat-option [value]="true">administrative</mat-option>
-          <mat-option [value]="false">רגיל</mat-option>
+          <mat-option [value]="false">regular</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -27,7 +27,7 @@
   <div class="dialog-actions">
     <div class="btn-group" aria-label="Default button group">
       <button mat-button color="warn" (click)="close()">cancel</button>
-      <button mat-raised-button color="primary"  (click)="save()" [disabled]="!EditRoleEmployeeForm">Save</button>
+      <button mat-raised-button color="primary"  (click)="save()" [disabled]="!EditemployeeRoleForm">Save</button>
     </div>
   </div>
   
